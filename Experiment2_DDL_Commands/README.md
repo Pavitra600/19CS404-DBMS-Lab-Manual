@@ -104,171 +104,177 @@ CREATE TABLE Table_Name (
 ```
 
 **Question 1**
+--
+<img width="1232" height="595" alt="image" src="https://github.com/user-attachments/assets/b3fdde58-8101-4a6b-9378-3fa00a6bb901" />
 
-![image](https://github.com/user-attachments/assets/942d6a0b-7606-402b-8f11-44f10198b37d)
-
-```sql
-CREATE TABLE Bonuses(
-BonusID INT PRIMARY KEY,
-EmployeeID INT,
-BonusAmount REAL CHECK(BonusAmount>0),
-BonusDate DATE,
-Reason TEXT NOT NULL
-);
 
 ```
+ALTER TABLE customer
+ADD discount DECIMAL(5,2);
+```
+
 **Output:**
 
-![image](https://github.com/user-attachments/assets/ea63e41a-09d4-4288-b139-43ea519825ed)
+<img width="1236" height="449" alt="image" src="https://github.com/user-attachments/assets/6f4fb72e-d8d6-4efa-9166-48eec23c0735" />
 
 
 **Question 2**
+---
+<img width="1403" height="371" alt="image" src="https://github.com/user-attachments/assets/024ae1a8-c713-4991-b3e8-f469e11f5b9f" />
 
-![image](https://github.com/user-attachments/assets/560ebfe7-6a54-41b1-a177-84d9a5353047)
 
-```sql
-INSERT INTO Products(ProductID,Name,Category,Price,Stock)
-VALUES(101,'Laptop','Electronics',1500,50);
+```
+CREATE TABLE ProjectAssignments (
+    AssignmentID   INTEGER PRIMARY KEY,
+    EmployeeID     INTEGER,
+    ProjectID      INTEGER,
+    AssignmentDate DATE NOT NULL,
+    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
+    FOREIGN KEY (ProjectID)  REFERENCES Projects(ProjectID)
+);
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/c341e460-a000-4de8-8a82-fdd131941394)
-
+<img width="1233" height="374" alt="image" src="https://github.com/user-attachments/assets/70100131-d7f5-4150-b4ab-2ce9ea303431" />
 
 **Question 3**
-
-![image](https://github.com/user-attachments/assets/7078b380-4e06-425d-8f7c-1471402da45d)
-
-
+---
+<img width="1398" height="258" alt="image" src="https://github.com/user-attachments/assets/cda1cd98-128d-4bd9-a673-6e2a9376ae32" />
 
 ```sql
-CREATE TABLE item(
-item_id TEXT PRIMARY KEY,
-item_desc TEXT NOT NULL,
-rate INT NOT NULL,
-icom_id TEXT(4),
-FOREIGN KEY (icom_id) REFERENCES company(com_id)
-ON UPDATE CASCADE
-ON DELETE CASCADE
-);
+ALTER TABLE customer
+ADD COLUMN email VARCHAR(100);
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/d9a11b44-58b4-4218-8148-f08af352f7c4)
-
+<img width="1651" height="324" alt="image" src="https://github.com/user-attachments/assets/b82c54b9-fb09-410d-97a7-a9d49c343cfe" />
 
 **Question 4**
+---
+<img width="1523" height="321" alt="image" src="https://github.com/user-attachments/assets/f696ba50-ae47-4c6c-977b-297d3172e69d" />
 
-![image](https://github.com/user-attachments/assets/d901433e-5f0c-4ef6-ba8f-37000fd2dde5)
 
-
-```sql
-CREATE TABLE ProjectAssignments(
-AssignmentID INT PRIMARY KEY,
-EmployeeID INT,
-ProjectID INT,
-AssignmentDate DATE NOT NULL,
-FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
-FOREIGN KEY (ProjectID) REFERENCES Projects(ProjectID)
+```
+CREATE TABLE contacts (
+    contact_id  INTEGER PRIMARY KEY,
+    first_name  TEXT NOT NULL,
+    last_name   TEXT NOT NULL,
+    email       TEXT,
+    phone       TEXT NOT NULL CHECK (length(phone) >= 10)
 );
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/7dc2bdd2-ad69-4dbe-9114-0626ef3c0db1)
+<img width="1883" height="293" alt="image" src="https://github.com/user-attachments/assets/f32fb280-d44d-41db-9390-c91a04280830" />
+
 
 **Question 5**
-
-![image](https://github.com/user-attachments/assets/52b89195-caf0-4ae9-a86f-68b5c64e1e4c)
-
+---
+<img width="1499" height="818" alt="image" src="https://github.com/user-attachments/assets/8a63c717-f004-44f2-acea-12d6f177be96" />
 
 ```sql
-INSERT INTO Books(ISBN,Title,Author,Publisher,YearPublished)
-SELECT  ISBN, Title, Author, Publisher, YearPublished
-FROM  Out_of_print_books;
+INSERT INTO Student_details (RollNo, Name, Gender, Subject, Marks)
+SELECT RollNo, Name, Gender, Subject, Marks
+FROM Archived_students;
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/22d0beef-7ccb-4f8a-8b2c-dc4afea77986)
+<img width="1903" height="443" alt="image" src="https://github.com/user-attachments/assets/5f8c14af-133b-4a5d-bd48-c3a0619cb653" />
+
 
 **Question 6**
+---
+<img width="1736" height="330" alt="image" src="https://github.com/user-attachments/assets/d6035eb3-b12a-417b-bf81-936a350cb67f" />
 
-![image](https://github.com/user-attachments/assets/52060e56-080f-468c-b8de-a8312006f748)
 
 ```sql
-CREATE TABLE Events(
-EventID INTEGER,
-EventName TEXT,
-EventDate DATE
+INSERT INTO Books (ISBN, Title, Author, Publisher, Year)
+VALUES ('978-1234567890', 'Data Science Essentials', 'Jane Doe', 'TechBooks', 2024);
+```
+
+**Output:**
+
+<img width="1899" height="344" alt="image" src="https://github.com/user-attachments/assets/082fd26d-435f-4220-975a-6b9b45c0b437" />
+
+
+**Question 7**
+---
+<img width="1710" height="577" alt="image" src="https://github.com/user-attachments/assets/3b501233-82e7-494f-8c7a-3f20c8447667" />
+
+
+```sql
+CREATE TABLE products (
+    product_id    INTEGER PRIMARY KEY,
+    product_name  TEXT NOT NULL,
+    list_price    DECIMAL(10,2) NOT NULL,
+    discount      DECIMAL(10,2) NOT NULL DEFAULT 0,
+    CHECK (
+        list_price >= discount
+        AND discount >= 0
+        AND list_price >= 0
+    )
 );
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/b22c3171-def9-4d72-97fc-140a0daa0dee)
+<img width="1896" height="329" alt="image" src="https://github.com/user-attachments/assets/c4f0076d-7bda-4073-a102-9856054f7b73" />
 
-**Question 7**
-
-![image](https://github.com/user-attachments/assets/4ddf8d63-e95b-4542-bead-dee188ba99b1)
-
-```sql
-INSERT INTO Products(ProductID,Name,Category,Price,Stock)
-VALUES(106,'Fitness Tracker','Wearables',NULL,NULL);
-INSERT INTO Products(ProductID,Name,Category,Price,Stock)
-VALUES(107,'Laptop','Electronics',999.99,50);
-INSERT INTO Products(ProductID,Name,Category,Price,Stock)
-VALUES(108,'Wireless Earbuds','Accessories',NULL,100);
-```
-
-**Output:**
-
-![image](https://github.com/user-attachments/assets/591defed-3658-4976-a479-3704104d7909)
 
 **Question 8**
-
-![image](https://github.com/user-attachments/assets/db29c91b-9692-462e-ac58-ad7c8a035391)
+---
+<img width="1435" height="547" alt="image" src="https://github.com/user-attachments/assets/e35723b7-c05d-41e3-8747-15fe6fe23dd5" />
 
 ```sql
-ALTER TABLE Companies ADD COLUMN designation varchar(50);
-ALTER TABLE Companies ADD COLUMN net_salary number;
-ALTER TABLE Companies ADD COLUMN dob date;
+CREATE TABLE Orders (
+    OrderID    INTEGER,
+    OrderDate  TEXT,
+    CustomerID INTEGER
+);
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/36f6e886-cdbc-40c1-937c-7d2559a0e7b3)
+<img width="1742" height="401" alt="image" src="https://github.com/user-attachments/assets/44a24914-7a2a-45b8-8ba4-25527bec87f2" />
 
 **Question 9**
+---
+<img width="1874" height="428" alt="image" src="https://github.com/user-attachments/assets/65b1a72b-2020-4f89-a896-503c6df3826e" />
 
-![image](https://github.com/user-attachments/assets/04c55e88-d808-4cce-9f43-0a4b2daa2943)
 
 ```sql
-CREATE TABLE jobs(
-job_id INT,
-job_title TEXT DEFAULT '',
-min_salary INT DEFAULT 8000,
-max_salary INT DEFAULT NULL);
+CREATE TABLE Orders (
+    OrderID     INTEGER PRIMARY KEY,
+    OrderDate   DATE NOT NULL,
+    CustomerID  INTEGER,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/4d67b31f-2b95-4c12-add8-b3054eb0448f)
+<img width="1878" height="294" alt="image" src="https://github.com/user-attachments/assets/fe997036-ce96-47c4-84b1-a7358ebcbc08" />
+
 
 **Question 10**
-
-![image](https://github.com/user-attachments/assets/baedcb9b-7706-43c1-afd3-a0ca26f7c903)
+---
+<img width="1482" height="616" alt="image" src="https://github.com/user-attachments/assets/2e3c9da3-6ec3-4dbe-a3d4-73904a89f990" />
 
 ```sql
-ALTER TABLE Student_details ADD COLUMN Email VARCHAR(50);
-ALTER TABLE Student_details ADD COLUMN MARKS INT DEFAULT 0;
+INSERT INTO Employee (EmployeeID, Name, Position, Department, Salary)
+VALUES 
+(2, 'John Smith', 'Developer', 'IT', 75000),
+(3, 'Anna Bell', 'Designer', 'Marketing', 68000);
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/e2dcd365-c733-4639-9d0d-e9db05b3eda1)
+<img width="1762" height="384" alt="image" src="https://github.com/user-attachments/assets/fd02f36d-3b99-4601-9d61-dcc518c0564b" />
+
 
 
 ## RESULT
